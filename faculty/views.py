@@ -70,7 +70,7 @@ def up_attend(request):
 	
 	ck = present.objects.filter(adate=pdate)
 	
-	if len(ck)>0:
+	if len(ck)>0 :
 		k = present.objects.get(adate=pdate)
 		k.s_ids = id
 		k.save()
@@ -78,7 +78,7 @@ def up_attend(request):
 	else:
 		inq = present(adate=pdate, s_ids=id)
 		inq.save()
-		return render(request,'home.html',{'info':"Today's attendance is created!!! "})
+		return render(request,'home.html',{'info':"Today's attendance is already updated successfully"})
 
 def chk_att(request):
 	res = present.objects.all().order_by('-id')

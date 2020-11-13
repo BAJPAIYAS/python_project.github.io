@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> Updation </title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <style>
 	body{
@@ -37,6 +38,10 @@
 
 	
 }
+p{
+	color: rgb(245, 239, 239);
+	font-size: 30px;
+}
 </style>
 <body>
 <h1 align="center" style="color: rgb(48, 45, 45);">
@@ -55,11 +60,14 @@
 				<th style="font-size: large;">Name</th>
 				<th style="font-size: large;">Update Attendance</th>
 			</tr>
-			{% for i in res %}
+		
+			
+		
+		{% for i in res %}
 			<tr>
 				<td style="color:white;"><li>{{i.rollno}}</li></td>
 				<td style="color:white;">{{i.sname}}</td>
-				<td><input type="checkbox" name="att" value="{{i.id}}"></td>
+				<td class="checkbox" ><input type="checkbox" name="att" value="{{i.id}}"></td>
 			</tr>
 		{% endfor %}
 		</table>
@@ -72,7 +80,27 @@
 	</form>
 {% endblock body %}
 </div>
-
+<p class="msg">
+	&nbsp; Please Select Atlest One Student..<br>
+	*If There Is Holiday Today Do Not Mark The Attendance... 
+</p>
 </body>
+<script>
+$(document).ready(function(){
+    $(".button").hide();
+ });
 
+
+var hiddenBox = $(".button");
+$(".checkbox").on( "click", function( event ) {
+  hiddenBox.show();
+  $(".msg").hide();
+});
+
+var hiddenBox = $(".button");
+$(".checkbox").off( "click", function( event ) {
+  hiddenBox.hide();
+  $(".msg").show();
+});
+</script>
 </html>
