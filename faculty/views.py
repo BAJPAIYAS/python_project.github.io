@@ -78,7 +78,7 @@ def up_attend(request):
 	else:
 		inq = present(adate=pdate, s_ids=id)
 		inq.save()
-		return render(request,'home.html',{'info':"Today's attendance is already updated successfully"})
+		return render(request,'home.html',{'info':"Today's attendance is  updated successfully"})
 
 def chk_att(request):
 	res = present.objects.all().order_by('-id')
